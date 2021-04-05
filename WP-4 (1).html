@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Assignment 4</title>
+    </head>
+    <body>
+        <h2>Armstrong Number</h2>
+        Enter a Number <input type="number" name="num" id = "armstrong"/>
+        <button onclick="armstrong()">click</button>
+        <script>
+            function armstrong(){
+                let sum=0;
+                var num = Number(document.getElementById("armstrong").value);
+
+                let temp=num;
+                while (temp>0)
+                {
+                    let remainder = temp % 10;
+                    sum += (remainder*remainder*remainder);
+                    temp = parseInt(temp / 10);
+                }
+                if(sum == num)
+                {
+                    window.alert("The entered number is an Armstrong number");
+                }
+                else
+                {
+                    window.alert("The entered number is not an Armstrong number");
+                }
+            }
+        </script>
+
+
+        <h2>Factorial of a Number</h2>
+        Enter the Number <input type="number" name="fact" id = "Factorial"/>
+        <button onclick="factorial()">click</button>
+        <script>
+            function factorial(){
+               var n =Number(document.getElementById("Factorial").value);
+               if (n<0){
+                   window.alert('Please enter a number >=0'); 
+               }
+               else if(n === 0){
+                   window.alert('factorial is 1'); 
+               }
+               else{
+                   let fact=1;
+                   for(var i=1; i<=n; i++){
+                        fact*=i;
+                   }
+                   window.alert("Factorial is  "+fact);
+               }
+            }
+        </script>
+
+        <h2>Factors of a Number</h2>
+        Enter the Number:<input id = "txtNumber" type="number"/>
+        <button onclick="factors()">Check</button><br></br>
+        <label id="Output"></label>
+        <script>
+            function factors(){
+                var number =document.getElementById("txtNumber").value;
+                var integer = parseInt(number);
+                var loopcount = integer/2;
+                for(var i =1; i<=loopcount;i++){
+                    if(integer%i ==0){
+                    document.getElementById("Output").innerHTML+=i+" , ";
+                    }
+                }
+                alert(document.getElementById("Output").innerHTML+=number);
+            } 
+        </script>
+
+        <h2> Prime check</h2>
+        Enter The Number :<input type="number" name="num" id = "prime"/>
+        <button onclick="prime()">click</button>
+        <script>
+            function prime()
+            {
+                var n = Number(document.getElementById('prime').value);
+                
+                if(n==1)
+                    alert('neither prime nor not prime');
+                else if(n==2)
+                    alert('prime number');
+                else{
+                    for(var i=2;i<n;i++)
+                    {
+                        if(n%i==0)
+                            alert('Not a prime');
+
+                    }
+                    window.alert('prime number');
+                }
+            }
+        </script> 
+
+        <h2>Palindrome check</h2>
+        Enter The Number :<input type="text" name="n" id = "palindrome"/>
+        <button onclick="Palindrome_num()">check</button>
+        <script>
+            function Palindrome_num()
+            {
+                var rem, temp, final = 0;
+                var number = Number(document.getElementById("palindrome").value);
+                
+                temp = number;
+                while(number>0)
+                {
+                    rem = number%10;
+                    number = parseInt(number/10);
+                    final = final*10+rem;
+                }
+                if(final==temp)
+                {
+                    window.alert("number is palindrome");
+                }
+                else
+                {
+                    window.alert("number is not palindrome");
+                }
+            }
+        </script>
+
+
+        <h2>Reverse of a Number</h2>
+               
+        Enter any Number: <input id="no_input">
+<button onclick="palin()">Check</button></br></br>    
+
+        <script>
+function palin()
+{
+var a,no,b,temp=0;
+
+no=Number(document.getElementById("no_input").value);
+
+b=no;
+while(no>0)
+{
+a=no%10;
+no=parseInt(no/10);
+temp=temp*10+a;
+}
+alert(temp);
+}
+</script>
+               
+        <h2> Split</h2>
+
+
+        Enter a string: <input id="split1">
+<button onclick="func()">Check</button></br></br> 
+
+            <script>    
+  
+function func() {    
+    var str = String(document.getElementById("split1").value);
+    var array = str.split(" ");  
+    alert(array);  
+}  
+</script>
+            
+        <div class="mail">
+            <h2>Check whether the Email is valid</h2>
+            <form name="form1" action="#"> 
+                <ul>
+                    <li><input type='text' name='text1' placeholder="Email Address"/></li>
+                    <li class="submit"><input type="submit" name="submit" value="Check" onclick="ValidateEmail(document.form1.text1)"/></li>
+                    
+                </ul>
+            </form>
+        </div>
+    <script /*src="email-validation.js"*/>
+    function ValidateEmail(inputText)
+        {
+            var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if(inputText.value.match(mailformat))
+            {
+                alert("Valid email address!");
+                document.form1.text1.focus();
+                return true;
+            }
+            else
+            {
+                alert("You have entered an invalid email address! "+" Please Check!");
+                document.form1.text1.focus();
+                return false;
+            }
+        }
+    </script>
+    </body>
+</html>
